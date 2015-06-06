@@ -1,0 +1,29 @@
+{
+  "devDependencies": {
+    "electron-prebuilt": "^0.24.0",
+    "glob": "^5.0.5",
+    "gulp": "^3.8.11",
+    "gulp-git": "^1.2.1",
+    "gulp-sourcemaps": "^1.5.2",
+    "gulp-typescript": "^2.7.6",
+    "http-proxy": "^1.11.1",
+    "merge2": "^0.3.5"
+  },
+  "name": "nsplode",
+  "version": "1.0.0",
+  "description": "A terminal wrapper that gives you an overview of all your current and favourite tasks.",
+  "main": "main.js",
+  "dependencies": {
+    "gulp": "^3.8.11"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "nsplode",
+    "terminal",
+    "command"
+  ],
+  "author": "petegriffiths",
+  "license": "ISC"
+}
