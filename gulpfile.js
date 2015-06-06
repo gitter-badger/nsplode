@@ -3,7 +3,6 @@
 
 var gulp = require("gulp");
 var ts = require("gulp-typescript");
-var browserSync = require("browser-sync");
 var merge = require("merge2");
 var sourcemaps = require("gulp-sourcemaps");
 var concat = require("gulp-concat");
@@ -132,25 +131,9 @@ function createTSWatch(module_name) {
 }
 
 
-
-/// server
-gulp.task("bsync", function () {
-
-    browserSync.init({
-        server: {
-            baseDir: "./"
-        },
-        open: false
-    });
-});
-
-
 /// default task
-gulp.task("default", [
-    "bsync"
-], 
+gulp.task("default",
 function () {
-    
     
     /// create build and watch tasks for all in the build order list.
     for (var i = 0; i < buildOrder.length; i++) {
