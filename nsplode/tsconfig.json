@@ -2,16 +2,22 @@
     "version": "1.4.1",
     "compilerOptions": {
         "target": "es5",
+        "module": "commonjs",
         "declaration": false,
-        "noImplicitAny": false,
-        "removeComments": true,
+        "noImplicitAny": true,
+        "removeComments": false,
         "noLib": false
     },
-    "filesGlob": [
-        "./**/*.ts",
-        "!./node_modules/**/*.ts",
+    "workflowFiles" :[
+        "../typings/tsd.d.ts",
+        
+        "!{nsbase}",
+        
+        "ui/Command.ts",
+        
+        "index.ts"
     ],
     "files": [
-        "./_references.ts"
+        "_references.ts"
     ]
 }

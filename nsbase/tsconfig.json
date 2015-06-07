@@ -2,6 +2,7 @@
     "version": "1.4.1",
     "compilerOptions": {
         "target": "es5",
+        "module": "commonjs",
         "declaration": true,
         "noImplicitAny": true,
         "removeComments": false,
@@ -10,9 +11,16 @@
     "workflowFiles" :[
         "../typings/tsd.d.ts",
         
-        "ui/Element.ts"
+        "g.ts",
+        
+        "validation/ValidationManager.ts",
+        
+        "ui/TextNode.ts",
+        "ui/Element.ts",
+        
+        "Locator.ts"
     ],
     "files": [
-        "./_references.ts"
+        "_references.ts"
     ]
 }

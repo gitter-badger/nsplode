@@ -37,8 +37,8 @@ var TSCONFIG = "/tsconfig.json";
 
 /// projects need to appear in here to have tasks created. 'all' is executed in this order.
 var buildOrder = [
-  "base",
-  "TestModule"  
+    "nsbase",
+    "nsplode"
 ];
 
 
@@ -48,11 +48,14 @@ var buildOrder = [
  */
 function createTSTask(module_name) {
     
+    console.log("task", module_name);
     
     var tsProject = ts.createProject(module_name + TSCONFIG, {/* overrides */});
     gulp.task(module_name, function () {
 
-        var files = require("./" + module_name + TSCONFIG).workflowFiles.concat();
+        var configFile = "./" + module_name + TSCONFIG;
+        var files = require(configFile).workflowFiles.concat();
+        delete require.cache[require.resolve(configFile)];
         
         ///
         logVerbose("files list: " + files);
@@ -124,8 +127,10 @@ function createTSTask(module_name) {
 function createTSWatch(module_name) {
     
     /// look out for ts changes, then kick off a build.
-    gulp.watch(["./" + module_name + "/**.ts", 
-                "!./" + module_name + "/**" + module_name + ".d.ts",
+    gulp.watch(["./" + module_name + "/**.ts",
+                "./" + module_name + "/**/*.ts", 
+                "./" + module_name + "/tsconfig.json",
+                "!./" + module_name + "/**/" + module_name + ".d.ts",
                 "!./" + module_name + "/_references.ts",                
         ], [module_name]);
 }
